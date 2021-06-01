@@ -11,7 +11,7 @@ public class TestParcial1 {
 	@Test
 	public void queSePuedaRegistrarTelepase () {
 		
-	/*	Autopista mayo = new Autopista(4);
+		Autopista mayo = new Autopista(4);
 		
 		Camion truck = new Camion("AAA123",50,80);
 		Automovil auto1 = new Automovil("BBB123",30);
@@ -34,7 +34,7 @@ public class TestParcial1 {
 		System.out.println(mayo.cantidadDeVehiculosENCirculacion());
 
 		System.out.println(mayo.getVehiculo(3).enInfraccion());
-		*/
+		
 	}
 
 	
