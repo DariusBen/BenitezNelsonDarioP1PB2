@@ -1,6 +1,6 @@
 package ar.edu.unlam.BenitezNelsonDarioP1PB2;
 
-public abstract class Estudiante {
+public class Estudiante {
 
 	private Integer DNI;
 	private String apellido;

@@ -10,8 +10,5 @@ public class Historia extends Libro implements IFotocopiable{
 	public String Fotocopiar() {
 		return "Este es un libro de Historia";
 	}
-
-	
-	
 	
 }

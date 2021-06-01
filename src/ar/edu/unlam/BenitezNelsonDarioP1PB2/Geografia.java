@@ -12,6 +12,4 @@ public class Geografia extends Libro implements IFotocopiable{
 	}
 
 	
-	
-	
 }

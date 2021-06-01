@@ -6,5 +6,5 @@ public class Matematica extends Libro {
 		super(codigo, nombre, autor);
 	}
 
-	
+
 }

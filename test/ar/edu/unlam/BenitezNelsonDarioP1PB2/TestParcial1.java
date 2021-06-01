@@ -1,42 +1,83 @@
 package ar.edu.unlam.BenitezNelsonDarioP1PB2;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 public class TestParcial1 {
 	
 	@Test
-	public void queSePuedaRegistrarTelepase () {
+	public void queSePuedaCrearUnLibro() {
 		
-		Autopista mayo = new Autopista(4);
+		Libro argentina = new Historia("111","Historia Argentina","Pepe Biondi");
 		
-		Camion truck = new Camion("AAA123",50,80);
-		Automovil auto1 = new Automovil("BBB123",30);
-		Automovil auto2 = new Automovil("CCC123",60);
-		Camion truck2 = new Camion("DDD123",100,80);
-		
-		mayo.ingresarAutopista(0,truck);
-		mayo.ingresarAutopista(1,auto1);
-		mayo.ingresarAutopista(2,auto2);
-		mayo.ingresarAutopista(3,truck2);
-		
-		System.out.println(mayo.cantidadDeVehiculosENCirculacion());
+		assertEquals("Pepe Biondi",argentina.getAutor());
+	}
 
-		mayo.salirAutopista(2);
+
+	@Test
+	public void queSePuedaPrestarUnLibro() {
+
+		Biblioteca biblioteca1 = new Biblioteca(2);
 		
-		System.out.println(mayo.cantidadDeVehiculosENCirculacion());
+		Libro argentina = new Historia("111","Historia Argentina","Pepe Biondi");
+		Libro numeros = new Matematica("222","Matematicas 1","Juan Topolean");
+	
+		Estudiante  pepe = new Estudiante(27308397,"Dario","Benitez");
+		
+		biblioteca1.agregarLibro(0, argentina);
+		biblioteca1.agregarLibro(1, numeros);
+		
+		biblioteca1.prestarLibro(1, numeros, pepe);
+		
+		
+		assertTrue(biblioteca1.cantidadDeLibrosPrestados() == 1);
+				
+	}
 
-		mayo.ingresarAutopista(2,auto2);
+	@Test
+	public void queSePuedaDevolverUnLibro() {
+		Biblioteca biblioteca1 = new Biblioteca(2);
+		
+		Libro argentina = new Historia("111","Historia Argentina","Pepe Biondi");
+		Libro numeros = new Matematica("222","Matematicas 1","Juan Topolean");
+	
+		Estudiante  pepe = new Estudiante(27308397,"Dario","Benitez");
+		
+		biblioteca1.agregarLibro(0, argentina);
+		biblioteca1.agregarLibro(1, numeros);
+		
+		biblioteca1.prestarLibro(1, numeros, pepe);
+		biblioteca1.devolverLibro(numeros);
+		
+		
+		assertTrue(biblioteca1.cantidadDeLibrosPrestados() == 0);
+				
+	}
 
-		System.out.println(mayo.cantidadDeVehiculosENCirculacion());
+	@Test
+	public void queSePuedaFotocopiarUnLibro() {
 
-		System.out.println(mayo.getVehiculo(3).enInfraccion());
+		Biblioteca biblioteca1 = new Biblioteca(2);
+		
+		Historia argentina = new Historia("111","Historia Argentina","Pepe Biondi");
+		Matematica numeros = new Matematica("222","Matematicas 1","Juan Topolean");
+	
+		Estudiante  pepe = new Estudiante(27308397,"Dario","Benitez");
+		
+		biblioteca1.agregarLibro(0, argentina);
+		biblioteca1.agregarLibro(1, numeros);
+		
+		assertTrue(argentina.Fotocopiar() != "");
+				
 		
 	}
 
-	
+	@Test
+	public void queNoSePuedaPrestarMasDeDosLibrosAUnEstudiante() {
+				
+	}
+
 	
 }

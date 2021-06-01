@@ -13,6 +13,12 @@ public class Biblioteca {
 	}
 	
 	
+	public void agregarLibro(Integer index, Libro libro)
+	{
+		this.Libros[index] = libro;
+	}
+	
+	
 	public Boolean prestarLibro (Integer Identificador, Libro libroAPrestar, Estudiante estudiante) {
 		
 		if (Identificador < this.prestamos.length)
@@ -64,10 +70,13 @@ public class Biblioteca {
 	{
 		 for ( Integer i = 0; i < this.prestamos.length; i++) {
 		
-			 if (this.prestamos[i].getLibro().getCodigo() == libroDevuelto.getCodigo() )
+			 if (this.prestamos[i] != null)
 			 {
-				 
-				 return true;
+				 if (this.prestamos[i].getLibro().getCodigo() == libroDevuelto.getCodigo() )
+				 {
+					 
+					 return true;
+				 }
 			 }
 		 }
 		 
@@ -80,12 +89,18 @@ public class Biblioteca {
 		
 		 for ( Integer i = 0; i < this.prestamos.length; i++) {
 		
-			 if (this.prestamos[i].getEstudiante().getDNI() == estudiante.getDNI() )
-			 {
-				 cantidadDeLibrosQueTiene++;
+			 if (this.prestamos[i] != null)
+			 {			 
+				 if (this.prestamos[i].getEstudiante().getDNI() == estudiante.getDNI() )
+				 {
+					 cantidadDeLibrosQueTiene++;
+				 }
 			 }
 		 }
 		 
 		return cantidadDeLibrosQueTiene;
 	}
+	
+	
+
 }
